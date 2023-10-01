@@ -1,6 +1,8 @@
 package com.sakkon.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import com.sakkon.tutorialmod.items.ModItems;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -36,7 +38,8 @@ public class TutorialMod {
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
+        ModItems.register(modEventBus);
+        
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
     }
